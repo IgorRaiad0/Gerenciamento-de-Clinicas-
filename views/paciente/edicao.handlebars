@@ -1,0 +1,34 @@
+<div class="col-md-6 mx-auto shadow p-3">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <h1 class="navbar-brand">Cadastrar Medicos</h1>
+
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="btn btn-sm btn-secondary" href="/paciente" ><i class="fa fa-angle-left"></i> Voltar</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <form method="post" action="/paciente/editar/{{paciente.id}}">
+        <fieldset>
+            <legend>Dados do Paciente</legend>
+
+            <label>NOME</label>
+            <input name="nome" type="text" class="form-control text-secondary" value="{{paciente.nome}}">
+
+            <label>TELEFONE</label>
+            <input name="telefone" type="text" class="form-control text-secondary" value="{{paciente.telefone}}">
+
+            <label>E-MAIL</label>
+            <input name="email" type="text" class="form-control text-secondary" value="{{paciente.email}}">
+
+            <label>ENDEREÇO</label>
+            <input name="endereco" type="text" class="form-control text-secondary" value="{{paciente.endereco}}">
+
+
+            <button type="submit" class="btn btn-success mt-3">Salvar</button>
+        </fieldset>
+    </form>
+</div>

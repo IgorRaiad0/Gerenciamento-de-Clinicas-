@@ -1,0 +1,42 @@
+<div class="col-md-6 mx-auto shadow p-3">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <h1 class="navbar-brand">Cadastrar Medicos</h1>
+
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="btn btn-sm btn-secondary" href="/paciente" ><i class="fa fa-angle-left"></i> Voltar</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <form method="post" action="/paciente/salvar">
+        <fieldset>
+            <legend>Dados do Paciente</legend>
+
+            <label>NOME</label>
+            <input name="nome" type="text" class="form-control">
+
+            <label>CPF</label>
+            <input name="cpf" type="text" class="form-control">
+
+            <label>Data de Nascimento</label>
+            <input name="dt_nasc" type="date" class="form-control">
+
+            <label>Telefone</label>
+            <input name="telefone" type="text" class="form-control">
+
+            <label>E-mail</label>
+            <input name="email" type="text" class="form-control">
+
+            <label>Endereço</label>
+            <input name="endereco" type="text" class="form-control">
+
+            <label>SENHA</label>
+            <input type="password" name="senha" class="form-control">
+
+            <button type="submit" class="btn btn-success mt-3">Salvar</button>
+        </fieldset>
+    </form>
+</div>

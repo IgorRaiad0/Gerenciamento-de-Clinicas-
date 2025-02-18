@@ -25,14 +25,14 @@
         </tr>
         {{#each medicos}}
         <tr>
-            <th>{{nome}}</th>
-            <th>{{cpf}}</th>
-            <th>{{espec}}</th>
-            <th>{{crm}}</th>
-            <th>
+            <td>{{nome}}</td>
+            <td>{{cpf}}</td>
+            <td>{{espec}}</td>
+            <td>{{crm}}</td>
+            <td>
                 <a class="btn btn-sm btn-info" href=""><i class="fa fa-search"></i> Consultas</a>
                 <a class="btn btn-sm btn-warning" href="/medico/editar/{{id}}"><i class="fa fa-pen"></i> Editar</a>
-            </th>
+            </td>
             
         </tr>
         {{/each}}

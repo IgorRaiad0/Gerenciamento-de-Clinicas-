@@ -1,0 +1,57 @@
+<div class="container-sm">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <h3 class="navbar-brand">Pacientes</h3>
+
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="btn btn-sm btn-success mx-2" href="/paciente/cadastro">
+                        <i class="fa fa-plus"></i> Novo
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-sm btn-secondary" href="#">
+                        <i class="fa fa-angle-left"></i> Voltar
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+                <th>Endereço</th>
+                <th class="col-3">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each pacientes}}
+            <tr>
+                <td>{{nome}}</td>
+                <td>{{dt_nasc}}</td>
+                <td>{{telefone}}</td>
+                <td>{{email}}</td>
+                <td>{{endereco}}</td>
+                <td>
+                    <a class="btn btn-sm btn-info" href="/paciente/{{id}}/consultas">
+                        <i class="fa fa-search"></i> Consultas
+                    </a>
+                    <a class="btn btn-sm btn-warning" href="/paciente/editar/{{id}}">
+                        <i class="fa fa-pen"></i> Editar
+                    </a>
+                    <form method="POST" action="/paciente/excluir/{{id}}" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja excluir este paciente?')">
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            <i class="fa fa-trash"></i> Excluir
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

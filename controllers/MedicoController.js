@@ -20,9 +20,9 @@ class MedicoController{
         }
 
         Medico.create(medico).then(() => {
-            console.log('Médico cadastrado com sucesso!')
-            res.redirect('/medico')
-        })
+            console.log('Médico cadastrado com sucesso!');
+            res.redirect('/medico');
+        });
     }
 
     edicao = async (req, res) => {
@@ -32,7 +32,7 @@ class MedicoController{
             console.log('Médico não encontrado!');
             return res.redirect('/medico');
         }
-        res.render('medico/edicao', {medico})
+        res.render('medico/edicao', {medico});
 }
 
     update = async (req, res) => {
@@ -47,7 +47,7 @@ class MedicoController{
             res.redirect('/medico');
         } catch(err) {
             console.log('Erro ao atualizar os dados!');
-            res.redirect(`/medico/editar/${id}`)
+            res.redirect(`/medico/editar/${id}`);
         }
     }
 

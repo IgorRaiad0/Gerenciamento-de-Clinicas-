@@ -26,8 +26,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 ///ROTAS DO SISTEMA
 
-
 import medico from './routes/medico.js';
 app.use('/medico', medico);
+
+import paciente from './routes/paciente.js';
+app.use('/paciente', paciente);
 
 app.listen(5000, ()=> console.log('Servidor Rodando em http://localhost:5000'))
