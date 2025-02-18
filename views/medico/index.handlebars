@@ -1,0 +1,41 @@
+<div class="container-sm">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <h3 class="navbar-brand">Medicos</h3>
+
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="btn btn-sm btn-success mx-2" href="/medico/cadastro"><i class="fa fa-plus"></i> Novo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-sm btn-secondary" href="#"><i class="fa fa-angle-left"></i> Voltar</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Especialidade</th>
+            <th>CRM</th>
+            <th class="col-2"></th>
+
+        </tr>
+        {{#each medicos}}
+        <tr>
+            <th>{{nome}}</th>
+            <th>{{cpf}}</th>
+            <th>{{espec}}</th>
+            <th>{{crm}}</th>
+            <th>
+                <a class="btn btn-sm btn-info" href=""><i class="fa fa-search"></i> Consultas</a>
+                <a class="btn btn-sm btn-warning" href="/medico/editar/{{id}}"><i class="fa fa-pen"></i> Editar</a>
+            </th>
+            
+        </tr>
+        {{/each}}
+    </table>
+
+</div>

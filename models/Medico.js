@@ -1,4 +1,3 @@
-import { unique } from "jquery";
 import banco from "../config/banco.js";
 
 const Medico = banco.sequelize.define('medicos', {
@@ -11,14 +10,6 @@ const Medico = banco.sequelize.define('medicos', {
         type: banco.Sequelize.STRING(100),
         allowNull: false
     },
-    telefone:{
-        type: banco.Sequelize.STRING(20)
-    },
-    email:{
-        type: banco.Sequelize.STRING(100),
-        unique: true,
-        allowNull: false
-    },
     cpf:{
         type: banco.Sequelize.STRING(20),
         unique: true,
@@ -27,7 +18,12 @@ const Medico = banco.sequelize.define('medicos', {
     espec:{
         type: banco.Sequelize.STRING(200),
         allowNull: false
-    }
+    },
+    crm:{
+        type: banco.Sequelize.STRING(13),
+        allowNull: false,
+        unique: true
+    },
 })
 
 Medico.sync();
