@@ -1,0 +1,36 @@
+<div class="col-md-6 mx-auto shadow p-3">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <h1 class="navbar-brand">Cadastrar Medicos</h1>
+
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="btn btn-sm btn-secondary" href="/medico" ><i class="fa fa-angle-left"></i> Voltar</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <form method="post" action="/medico/salvar">
+        <fieldset>
+            <legend>Dados do Medico</legend>
+
+            <label>NOME</label>
+            <input name="nome" type="text" class="form-control">
+
+            <label>ESPECIALIDADE</label>
+            <input name="espec" type="text" class="form-control">
+
+            <label>CPF</label>
+            <input name="cpf" type="text" class="form-control">
+
+            <label>CRM</label>
+            <input name="crm" type="text" class="form-control">
+
+            <label>SENHA</label>
+            <input type="password" name="senha" class="form-control">
+
+            <button type="submit" class="btn btn-success mt-3">Salvar</button>
+        </fieldset>
+    </form>
+</div>
