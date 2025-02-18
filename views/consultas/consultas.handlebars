@@ -1,0 +1,33 @@
+<h1>Lista de Consultas</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Médico</th>
+      <th>Paciente</th>
+      <th>Data</th>
+      <th>Hora</th>
+      <th>Status</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each consultas}}
+      <tr>
+        <td>{{ this.id }}</td>
+        <td>{{ this.medico_id }}</td>
+        <td>{{ this.paciente_id }}</td>
+        <td>{{ this.data }}</td>
+        <td>{{ this.hora }}</td>
+        <td>{{ this.status }}</td>
+        <td>
+          <a href="/consultas/editar/{{ this.id }}" class="btn btn-warning btn-sm">Editar</a>
+          <form action="/consultas/excluir/{{ this.id }}" method="POST" style="display: inline;">
+            <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+          </form>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+<a href="/consultas/nova" class="btn btn-primary">Nova Consulta</a>

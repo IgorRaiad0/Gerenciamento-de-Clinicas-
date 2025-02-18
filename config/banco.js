@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize'
 
-const DB_NAME = 'prova'
+const DB_NAME = 'clinica'
 const USER_NAME = 'root'
 const PASSWORD = ''
 const HOST = 'localhost'
