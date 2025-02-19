@@ -7,6 +7,23 @@ import bodyParser from "body-parser";
 import path from "path";
 import { fileURLToPath } from 'url';
 import { allowInsecurePrototypeAccess} from "@handlebars/allow-prototype-access";
+import session from 'express-session';
+import flash from 'connect-flash';
+
+//CONFIGS
+app.use(session({
+    secret: 'sistemaclinica',
+    resave: true,
+    saveUninitialized: false,
+})); //config da sessão
+
+app.use(flash());//config das mensagens
+
+app.use((req, res, next) => {
+    res.locals.sucess_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    next()
+})
 
 //CONFIGURAR O TEMPLATE PADRÃO
 app.engine('handlebars', handlebars.engine({
@@ -25,7 +42,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 ///ROTAS DO SISTEMA
-
 import medico from './routes/medico.js';
 app.use('/medico', medico);
 
