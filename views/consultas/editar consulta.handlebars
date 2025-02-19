@@ -1,0 +1,28 @@
+<h1>Editar Consulta</h1>
+<form action="/consultas/editar/{{ consulta.id }}" method="POST">
+  <div class="mb-3">
+    <label for="medico_id" class="form-label">ID do Médico</label>
+    <input type="number" class="form-control" id="medico_id" name="medico_id" value="{{ consulta.medico_id }}" required>
+  </div>
+  <div class="mb-3">
+    <label for="paciente_id" class="form-label">ID do Paciente</label>
+    <input type="number" class="form-control" id="paciente_id" name="paciente_id" value="{{ consulta.paciente_id }}" required>
+  </div>
+  <div class="mb-3">
+    <label for="data" class="form-label">Data</label>
+    <input type="date" class="form-control" id="data" name="data" value="{{ consulta.data }}" required>
+  </div>
+  <div class="mb-3">
+    <label for="hora" class="form-label">Hora</label>
+    <input type="time" class="form-control" id="hora" name="hora" value="{{ consulta.hora }}" required>
+  </div>
+  <div class="mb-3">
+    <label for="status" class="form-label">Status</label>
+    <select class="form-select" id="status" name="status">
+      <option value="agendada" {{#if (eq consulta.status "agendada") }}selected{{/if}}>Agendada</option>
+      <option value="cancelada" {{#if (eq consulta.status "cancelada") }}selected{{/if}}>Cancelada</option>
+      <option value="realizada" {{#if (eq consulta.status "realizada") }}selected{{/if}}>Realizada</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
