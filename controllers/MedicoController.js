@@ -1,28 +1,50 @@
 import Medico from "../models/Medico.js";
+import User from '../models/User.js';
+import bcrypt from 'bcryptjs';
 
 class MedicoController{
 
     listar = async(req, res) => {
-        let medicos = await Medico.findAll();
-        res.render('medico/index', {medicos: medicos});
+        try{
+            let medicos = await Medico.findAll();
+            res.render('medico/index', {medicos: medicos});
+        } catch(err){
+            req.flash('error_msg', 'Erro ao listar medicos');
+        }
     }
 
     cadastrar = (req, res) => {
         res.render('medico/cadastro');
     }
 
-    salvar = (req, res) => {
-        let medico = {
-            cpf: req.body.cpf,
-            nome: req.body.nome,
-            espec: req.body.espec,
-            crm: req.body.crm
-        }
+    salvar = async (req, res) => {
+        try{
 
-        Medico.create(medico).then(() => {
-            console.log('Médico cadastrado com sucesso!');
-            res.redirect('/medico');
-        });
+            const salt = await bcrypt.genSalt(10);
+            const hash = await bcrypt.hash(req.body.senha, salt);
+
+            const user = await User.create({
+                login: req.body.crm,
+                senha: hash,
+                categoria: 'medico'
+            });
+
+            await Medico.create({
+                nome: req.body.nome,
+                cpf: req.body.cpf,
+                espec: req.body.espec,
+                crm: req.body.crm,
+                user_id: user.id
+            });
+            
+            req.flash('success_msg', 'Médico cadastrado com sucesso');
+            res.redirect('/medico/cadastro');
+
+        } catch (err){
+
+            req.flash('error_msg', 'Erro ao cadastrar médico');
+            res.redirect('/medico/cadastro');
+        }
     }
 
     edicao = async (req, res) => {
